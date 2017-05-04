@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Endpoint url</ion-label>
+      <ion-input type="url" [(ngModel)]="endpoint"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Path to file</ion-label>
+      <ion-input [(ngModel)]="filename"></ion-input>
+    </ion-item>
+    <ion-item>
+      <button ion-button outline (click)="uploadFile()">
+        Start upload
+      </button>
+    </ion-item>
+    <ion-item>
+      State: {{state}}
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
