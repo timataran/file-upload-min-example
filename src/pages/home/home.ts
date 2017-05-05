@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, Platform } from 'ionic-angular';
 import { Transfer, FileUploadOptions, TransferObject } from '@ionic-native/transfer';
 
 @Component({
@@ -13,8 +13,11 @@ export class HomePage {
   private filename: string = "file:///system/build.prop";
   private state: string = 'IDLE';
 
-  constructor(public navCtrl: NavController, private transfer: Transfer) {
-    this.fileTransfer = this.transfer.create();
+  constructor(public navCtrl: NavController, private transfer: Transfer,
+              private platform: Platform) {
+    this.platform.ready().then(res => {
+      this.fileTransfer = this.transfer.create();
+    });
   }
 
   public uploadFile():void{
